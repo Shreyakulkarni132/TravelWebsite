@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <title>Travel Website</title>
+    <style>
+        .search-bar {
+            max-width: 700px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .form-control {
+            border-radius: 2rem !important;
+        }
+
+        .form-control-date {
+            border-radius: 2rem !important;
+        }
+
+        .btn-search {
+            border-radius: 2rem !important;
+            padding: 0 20px;
+        }
+
+        .background-section {
+            background: url('./img2.png') no-repeat center center/cover;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .line-through {
+            text-decoration: line-through;
+        }
+
+        .trending {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .traveltab {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .trending-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trending-card img {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .trending-card .card-body {
+            flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            .trending-card img {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .trending-card img {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">World Travel Go</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./indexproject.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./About.html">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./Contact.html">Contact us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Explore
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="./Contact.html">Join us</a>
+                        <a class="dropdown-item" href="./Contact.html">Advertisements</a>
+                        <a class="dropdown-item" href="./Contact.html">Social media and more</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div class="mx-2">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#signupModal">SignUp</button>
+            </div>
+        </div>
+    </nav>
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login to Hive World</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Get an Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group">
+                            <label for="cexampleInputPassword1">Confirm Password</label>
+                            <input type="password" class="form-control" id="cexampleInputPassword1">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="background-section">
+        <div class="container text-center">
+            <!-- Heading -->
+            <div class="top my-0 mt-0">
+                <h2 style="font-family: 'Merriweather', serif; font-weight: 700; font-style: italic;">
+                    Travel World Go: You pack, we plan.
+                </h2>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar d-flex justify-content-center mt-5">
+                <div class="input-group" style="max-width: 700px; width: 100%;">
+                    <input type="text" class="form-control" placeholder="Where to?" aria-label="Destination">
+                    <input type="date" class="form-control form-control-date" aria-label="Date">
+                    <button class="btn btn-primary btn-search" type="button">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="traveltab" class="container-flex nav-scroller py-1 border-bottom my-0 mb-0">
+        <nav class="nav d-flex justify-content-between fst-italic">
+            <a class="p-2 text-muted" href="./news.html">Hiking</a>
+            <a class="p-2 text-muted" href="./news.html">Reviews</a>
+            <a class="p-2 text-muted" href="./news.html">Pilgrim Travel</a>
+            <a class="p-2 text-muted" href="./news.html">Kids Special</a>
+            <a class="p-2 text-muted" href="./news.html">Honeymoon</a>
+            <a class="p-2 text-muted" href="./news.html">Heritage</a>
+            <a class="p-2 text-muted" href="./news.html">Undiscovered</a>
+            <a class="p-2 text-muted" href="./news.html">Adventure</a>
+        </nav>
+    </div>
+
+    <!-- Trending Section -->
+    <div class="trending container-flex my-3">
+        <div class="row mb-3 mt-0">
+            <div class="col text-left">
+                <h3 style="font-family: 'Merriweather', serif; font-weight: 600;">
+                    Trending Packages
+                </h3>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./paris.png" class="card-img-top" alt="Paris" />
+                    <div class="card-body">
+                        <h5 class="card-title">Paris Getaway</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹49,999</span><br />
+                            <strong class="text-danger">₹29,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./bali.png" class="card-img-top" alt="Bali" />
+                    <div class="card-body">
+                        <h5 class="card-title">Bali Escape</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹39,999</span><br />
+                            <strong class="text-danger">₹24,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./switz.png" class="card-img-top" alt="Switzerland" />
+                    <div class="card-body">
+                        <h5 class="card-title">Swiss Alps</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹69,999</span><br />
+                            <strong class="text-danger">₹44,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./america.png" class="card-img-top" alt="America" />
+                    <div class="card-body">
+                        <h5 class="card-title">NYC Lights</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹59,999</span><br />
+                            <strong class="text-danger">₹39,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./turkey.png" class="card-img-top" alt="Turkey" />
+                    <div class="card-body">
+                        <h5 class="card-title">Turkey</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹59,999</span><br />
+                            <strong class="text-danger">₹39,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./grid.png" class="card-img-top" alt="Sri Lanka" />
+                    <div class="card-body">
+                        <h5 class="card-title">Check More</h5>
+                        <a href="./">Click here to unveil the magic</a>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-flex my-5" style="margin-left: 5%; margin-right: 5%;">
+        <div class="row align">
+            <div class="col-md-6">
+                <img src="./fam.png" alt="Explore India" class="img-fluid rounded shadow" />
+            </div>
+            <!-- Text Content (Left Side) -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2 style="font-family: 'Merriweather', serif; font-weight: 600;">Travel India Like Never Before</h2>
+                <p class="mt-3">From the snow-capped Himalayas to the sun-kissed beaches of Goa experience the diverse
+                    beauty, culture, and heritage India has to offer. Lorem ipsum dolor sit amet consectetur,
+                    adipisicing elit. Doloremque modi ullam eos nemo assumenda delectus veniam rem, suscipit voluptas
+                    ipsa esse perspiciatis quae facere maiores ratione harum laudantium fuga ut?</p>
+                <a href="#" class="btn btn-outline-primary mt-3">Explore Now</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="trending container-flex my-3" style="margin-left: 5%; margin-right: 5%;">
+        <div class="row mb-3 mt-0">
+            <div class="col text-left">
+                <h3 style="font-family: 'Merriweather', serif; font-weight: 600;">
+                    Customer Reviews
+                </h3>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-lg-4 mb-4">
+                <svg aria-label="Customer" class="bd-placeholder-img rounded-circle mb-3" height="100" width="100"
+                    preserveAspectRatio="xMidYMid slice" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <title>Customer Image</title>
+                    <rect width="100%" height="100%" fill="#ccc"></rect>
+                </svg>
+                <h5 class="fw-semibold">Hari Om</h5>
+                <p class="text-muted">“Had an amazing experience! The trip was well planned and the team was super
+                    helpful throughout.”</p>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <svg aria-label="Customer" class="bd-placeholder-img rounded-circle mb-3" height="100" width="100"
+                    preserveAspectRatio="xMidYMid slice" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <title>Customer Image</title>
+                    <rect width="100%" height="100%" fill="#ccc"></rect>
+                </svg>
+                <h5 class="fw-semibold">Priya Sharma</h5>
+                <p class="text-muted">“A perfect mix of comfort and adventure. Truly an unforgettable journey through
+                    India!”</p>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <svg aria-label="Customer" class="bd-placeholder-img rounded-circle mb-3" height="100" width="100"
+                    preserveAspectRatio="xMidYMid slice" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <title>Customer Image</title>
+                    <rect width="100%" height="100%" fill="#ccc"></rect>
+                </svg>
+                <h5 class="fw-semibold">Arun Radhe</h5>
+                <p class="text-muted">“From booking to return, everything was seamless. Highly recommend for family
+                    vacations.”</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="trending container-flex my-3" style="margin-left: 5%; margin-right: 5%;">
+        <div class="row mb-3 mt-0">
+            <div class="col text-left">
+                <h3 style="font-family: 'Merriweather', serif; font-weight: 600;">
+                    Explore More
+                </h3>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./paris.png" class="card-img-top" alt="Paris" />
+                    <div class="card-body">
+                        <h5 class="card-title">Paris Getaway</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹49,999</span><br />
+                            <strong class="text-danger">₹29,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./bali.png" class="card-img-top" alt="Bali" />
+                    <div class="card-body">
+                        <h5 class="card-title">Bali Escape</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹39,999</span><br />
+                            <strong class="text-danger">₹24,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./switz.png" class="card-img-top" alt="Switzerland" />
+                    <div class="card-body">
+                        <h5 class="card-title">Swiss Alps</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹69,999</span><br />
+                            <strong class="text-danger">₹44,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./america.png" class="card-img-top" alt="America" />
+                    <div class="card-body">
+                        <h5 class="card-title">NYC Lights</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹59,999</span><br />
+                            <strong class="text-danger">₹39,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./turkey.png" class="card-img-top" alt="Turkey" />
+                    <div class="card-body">
+                        <h5 class="card-title">Turkey</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹59,999</span><br />
+                            <strong class="text-danger">₹39,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./srilanka.png" class="card-img-top" alt="Sri Lanka" />
+                    <div class="card-body">
+                        <h5 class="card-title">Sri Lanka</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹59,999</span><br />
+                            <strong class="text-danger">₹39,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./paris.png" class="card-img-top" alt="Paris" />
+                    <div class="card-body">
+                        <h5 class="card-title">Paris Getaway</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹49,999</span><br />
+                            <strong class="text-danger">₹29,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./bali.png" class="card-img-top" alt="Bali" />
+                    <div class="card-body">
+                        <h5 class="card-title">Bali Escape</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹39,999</span><br />
+                            <strong class="text-danger">₹24,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./switz.png" class="card-img-top" alt="Switzerland" />
+                    <div class="card-body">
+                        <h5 class="card-title">Swiss Alps</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹69,999</span><br />
+                            <strong class="text-danger">₹44,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./america.png" class="card-img-top" alt="America" />
+                    <div class="card-body">
+                        <h5 class="card-title">NYC Lights</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹59,999</span><br />
+                            <strong class="text-danger">₹39,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./turkey.png" class="card-img-top" alt="Turkey" />
+                    <div class="card-body">
+                        <h5 class="card-title">Turkey</h5>
+                        <p class="card-text mb-1">
+                            <span class="text-muted" style="text-decoration: line-through;">₹59,999</span><br />
+                            <strong class="text-danger">₹39,999</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
+                <div class="card shadow trending-card">
+                    <img src="./grid.png" class="card-img-top" alt="Sri Lanka" />
+                    <div class="card-body">
+                        <h5 class="card-title">Want more?</h5>
+                        <a href="./">Click here to unveil the magic</a>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="container-flex my-5" style="margin-left: 5%; margin-right: 5%;">
+        <div class="row align-items-top">
+            <!-- Left Column - Text Content -->
+            <div class="col-lg-6">
+                <h2 class="mb-3" style="font-family: 'Merriweather', serif; font-weight: 700;">About Us</h2>
+                <p class="lead text-muted mb-4">Crafting unforgettable journeys across India and beyond.</p>
+                <p style="font-size: 1.05rem;">
+                    We are a passionate team of travel enthusiasts, dedicated to curating the best holiday
+                    experiences
+                    for you. Whether you're seeking adventure in the mountains, relaxation by the sea, or
+                    cultural
+                    exploration
+                    in vibrant cities, we ensure every trip is personal, memorable, and seamless.
+                </p>
+                <a href="#" class="btn btn-primary mt-3">Meet the Team</a>
+            </div>
+
+            <!-- Right Column - Optional Image or Illustration -->
+            <div class="col-lg-6 text-center">
+                <img src="office.png" alt="Our Team" class="img-fluid rounded shadow-sm">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="container-flex my-5" style="margin-left: 5%; margin-right: 5%;">
+        <div class="row align-items-center">
+            <!-- Left Column: Contact Form -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="mb-3" style="font-family: 'Merriweather', serif; font-weight: 700;">Get in Touch</h2>
+                <form id="contact-form" class="p-4 rounded shadow-sm bg-light">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+
+            </div>
+
+            <!-- Right Column: Contact Info/Text -->
+            <div class="col-lg-6">
+                <h2 class="mb-3" style="font-family: 'Merriweather', serif; font-weight: 300;">We’re here to
+                    assist
+                    you with your travel plans!</h2>
+                <p style="font-size: 1.05rem;">
+                    Whether you have a question, need help planning your journey, or want to customize your trip
+                    —
+                    our team is ready to help.
+                    Fill out the form and we’ll get back to you shortly.
+                </p>
+                <p class="mb-1"><strong>Email:</strong> contact@travelindia.com</p>
+                <p class="mb-1"><strong>Phone:</strong> +91 98765 43210</p>
+                <p class="mb-0"><strong>Location:</strong> Mumbai, India</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4 pt-3 mb-2 border-top border-secondary small">
+        &copy; 2025 Travel India. All rights reserved.
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+
+    <script src="frontend1.js"></script>
+</body>
+
+</html>
