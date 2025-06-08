@@ -1,9 +1,7 @@
 # Travel India Website
-
 A responsive travel website built with Bootstrap, showcasing trending travel packages, an about us section, contact form, and more.
 
-## Features
-
+# Features
 - Responsive design using Bootstrap 4  
 - Search bar with date picker  
 - Trending packages section with cards and pricing  
